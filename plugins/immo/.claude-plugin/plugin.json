@@ -1,19 +1,23 @@
 {
   "name": "immo",
-  "description": "Skills Claude pour les professionnels de l'immobilier français : vigilance LCB-FT / TRACFIN (KYC, screening gratuit, fiche d'évaluation des risques) et recherche publique de biens sur SeLoger.",
+  "description": "Skills Claude pour les professionnels de l'immobilier français, couvrant tout le cycle d'activité de l'agent : revue du matin, estimation vendeur, dossier de mandat, annonce & diffusion, qualification acquéreur, rapprochement, vigilance LCB-FT / TRACFIN, négociation & closing, et tenue du CRM (source de vérité).",
   "author": {
     "name": "tigitz"
   },
   "repository": "https://github.com/tigitz/immo-claude-plugins",
   "keywords": [
     "immobilier",
+    "agent-immobilier",
+    "crm",
+    "matching",
+    "estimation",
+    "mandat",
     "lcb-ft",
     "tracfin",
     "kyc",
     "conformite",
     "vigilance",
     "seloger",
-    "recherche-de-biens",
     "annonces"
   ]
 }

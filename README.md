@@ -9,10 +9,21 @@ une fois le plugin installé, un simple `/plugin update` récupère les dernièr
 
 ## Skills inclus
 
-| Skill | À quoi il sert |
-|-------|----------------|
-| **vigilance-immo** | Constitue le dossier de vigilance **LCB-FT / TRACFIN** d'une transaction : collecte KYC, screening gratuit (sanctions, PPE, SCI, sources ouvertes) et production de la **Fiche d'évaluation des risques** officielle TRACFIN-DGCCRF (notation 1→4). Se déclenche sur « fais-moi le Tracfin du dossier », « vérifie cet acheteur », « fiche de vigilance »… |
-| **seloger-search** | Interroge la **recherche publique de biens SeLoger** en CLI (sans compte ni clé) : résout un nom de lieu en `placeId`, cherche par critères (achat/location, type, prix, pièces, surface, secteur) et renvoie un digest compact des annonces (prix, €/m², surface, ville, DPE, agence, lien). Se déclenche sur « cherche des appart à Nice », « qu'est-ce qui se vend à Cannes », « combien d'annonces sur ce quartier »… |
+Les skills suivent le **cycle d'activité** de l'agent immobilier, une compétence par étape.
+Fil rouge : le **CRM est la source de vérité**, et l'agent valide toujours avant écriture / envoi.
+
+| Skill | Étape | À quoi il sert |
+|-------|-------|----------------|
+| **revue-du-matin** | 1 · Capter & trier | Consolide les nouveautés de la veille (mails, WhatsApp, Slack, CRM), propose les saisies CRM et une **to-do priorisée orientée signature** + les actions clés en main. |
+| **estimation-vendeur** | 2 · Estimer | Vocal + documents → estimation argumentée par comparables, synchro fiche vendeur/bien dans le CRM, et **pitch ADN Kretz** pour décrocher le mandat. |
+| **dossier-mandat** | 3 · Rentrer le mandat | Rédige le mandat, checklist de validation, jeux de champs **CRM + Modelo** (fini la triple-saisie), et enchaîne sur `vigilance-immo`. |
+| **annonce-diffusion** | 4 · Mettre en marché | Annonce à la marque Kretz (≈2000 car SEO, FR/EN, avec/sans logo), traitement des photos, affiche via le CRM, paquets de diffusion par plateforme. |
+| **qualification-acquereur** | 5 · Qualifier | Challenge l'agent pour capter tous les critères, crée la fiche acquéreur, lance la recherche (base interne + veille). |
+| **rapprochement** | 6 · Rapprocher & visiter | Le **cerveau matching** : croise une recherche avec la base, classe le Top N, prépare mises en relation + créneaux de visite. |
+| **vigilance-immo** | 7 · Vigilance | Dossier **LCB-FT / TRACFIN** : KYC, screening gratuit (sanctions, PPE, SCI), **Fiche d'évaluation des risques** officielle TRACFIN-DGCCRF (1→4). |
+| **negociation-closing** | 8 · Négocier & closer | Coache la négociation, pré-remplit le **compromis Modelo**, fait l'entremetteur (messages + créneaux), suit les conditions suspensives. |
+| **crm-sync** | 9 · Entretenir & réactiver | Capitalise le flux entrant dans le **CRM (source de vérité)** avec les bons statuts, repère les dossiers dormants et propose les relances. |
+| **seloger-search** | veille *(en construction)* | Recherche publique de biens SeLoger en CLI (sans compte) : critères → digest d'annonces (prix, €/m², DPE, agence, lien). |
 
 ## Installation (à faire une fois)
 
@@ -50,13 +61,16 @@ plugins/
     .claude-plugin/
       plugin.json           ← manifeste du plugin
     skills/
-      vigilance-immo/
-        SKILL.md            ← le skill (instructions pour Claude)
-        references/         ← docs de référence (obligations CMF, sources, fiche)
-        assets/             ← gabarits (template de fiche d'évaluation)
-      seloger-search/
-        SKILL.md            ← le skill (instructions pour Claude)
-        scripts/            ← CLI Python (seloger.py)
+      revue-du-matin/         SKILL.md
+      estimation-vendeur/     SKILL.md
+      dossier-mandat/         SKILL.md
+      annonce-diffusion/      SKILL.md
+      qualification-acquereur/ SKILL.md
+      rapprochement/          SKILL.md
+      vigilance-immo/         SKILL.md + references/ + assets/
+      negociation-closing/    SKILL.md
+      crm-sync/               SKILL.md
+      seloger-search/         SKILL.md + scripts/   (en construction)
 ```
 
 Pour ajouter un skill : créer `plugins/immo/skills/<nom>/SKILL.md`, commit, push.
