@@ -12,6 +12,7 @@ une fois le plugin installé, un simple `/plugin update` récupère les dernièr
 | Skill | À quoi il sert |
 |-------|----------------|
 | **vigilance-immo** | Constitue le dossier de vigilance **LCB-FT / TRACFIN** d'une transaction : collecte KYC, screening gratuit (sanctions, PPE, SCI, sources ouvertes) et production de la **Fiche d'évaluation des risques** officielle TRACFIN-DGCCRF (notation 1→4). Se déclenche sur « fais-moi le Tracfin du dossier », « vérifie cet acheteur », « fiche de vigilance »… |
+| **seloger-search** | Interroge la **recherche publique de biens SeLoger** en CLI (sans compte ni clé) : résout un nom de lieu en `placeId`, cherche par critères (achat/location, type, prix, pièces, surface, secteur) et renvoie un digest compact des annonces (prix, €/m², surface, ville, DPE, agence, lien). Se déclenche sur « cherche des appart à Nice », « qu'est-ce qui se vend à Cannes », « combien d'annonces sur ce quartier »… |
 
 ## Installation (à faire une fois)
 
@@ -53,6 +54,9 @@ plugins/
         SKILL.md            ← le skill (instructions pour Claude)
         references/         ← docs de référence (obligations CMF, sources, fiche)
         assets/             ← gabarits (template de fiche d'évaluation)
+      seloger-search/
+        SKILL.md            ← le skill (instructions pour Claude)
+        scripts/            ← CLI Python (seloger.py)
 ```
 
 Pour ajouter un skill : créer `plugins/immo/skills/<nom>/SKILL.md`, commit, push.

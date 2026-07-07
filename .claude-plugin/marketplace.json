@@ -8,7 +8,7 @@
     {
       "name": "immo",
       "source": "./plugins/immo",
-      "description": "Skills de conformité et de vigilance pour l'immobilier (LCB-FT / TRACFIN)."
+      "description": "Skills pour l'immobilier français : conformité/vigilance (LCB-FT / TRACFIN) et recherche publique de biens (SeLoger)."
     }
   ]
 }
