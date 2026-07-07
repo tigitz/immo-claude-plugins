@@ -1,0 +1,16 @@
+{
+  "name": "immo",
+  "description": "Skills Claude pour les professionnels de l'immobilier français : vigilance LCB-FT / TRACFIN, KYC, screening gratuit et fiche d'évaluation des risques de blanchiment.",
+  "author": {
+    "name": "tigitz"
+  },
+  "repository": "https://github.com/tigitz/immo-claude-plugins",
+  "keywords": [
+    "immobilier",
+    "lcb-ft",
+    "tracfin",
+    "kyc",
+    "conformite",
+    "vigilance"
+  ]
+}

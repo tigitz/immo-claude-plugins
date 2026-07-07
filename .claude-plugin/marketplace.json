@@ -1,0 +1,14 @@
+{
+  "name": "immo-plugins",
+  "owner": {
+    "name": "tigitz"
+  },
+  "description": "Marketplace de plugins Claude pour les professionnels de l'immobilier français.",
+  "plugins": [
+    {
+      "name": "immo",
+      "source": "./plugins/immo",
+      "description": "Skills de conformité et de vigilance pour l'immobilier (LCB-FT / TRACFIN)."
+    }
+  ]
+}
